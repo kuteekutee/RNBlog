@@ -1,8 +1,9 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { Stack, useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams } from 'expo-router'
 import { getPost } from '../repository/postRepository'
 import { Post } from '../types/post'
+import Markdown from 'react-native-markdown-display'
 
 const PostDetailsPage = () => {
   const { slug } = useLocalSearchParams()
@@ -13,10 +14,21 @@ const PostDetailsPage = () => {
   }
 
   return (
-    <View>
-      <Stack.Screen options={{ title: 'Post Details' }} />
-      <Text>Post Title: {post.title}</Text>
-    </View>
+    <ScrollView
+      contentContainerStyle={{
+        maxWidth: 960,
+        width: '100%',
+        marginHorizontal: 'auto',
+        padding: 20,
+      }}
+      style={{
+        flex: 1,
+        backgroundColor: 'white',
+      }}
+    >
+      <Text style={{ fontSize: 30, marginBottom: 20 }}>{post.title}</Text>
+      <Markdown>{post.content}</Markdown>
+    </ScrollView>
   )
 }
 
