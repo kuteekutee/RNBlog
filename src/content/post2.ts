@@ -62,7 +62,6 @@ const post: Post = {
   caput](http://fatentur.net/) gratus in arcet sine fides nec et patriam vultum
   seque motis saltus.
   `,
-  thumbnail: "",
 };
 
 export default post;

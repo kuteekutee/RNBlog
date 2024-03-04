@@ -60,7 +60,6 @@ const post: Post = {
   **caestibus et vertice** ad lacusque, desistere? Et vitiasse tenuit canebat
   nubila.
   `,
-  thumbnail: "",
 };
 
 export default post;
