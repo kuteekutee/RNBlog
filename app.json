@@ -30,7 +30,12 @@
       "output": "static"
     },
     "plugins": [
-      "expo-router"
+      [
+        "expo-router",
+        {
+          "origin": "https://rn-blog-brown.vercel.app/"
+        }
+      ]
     ]
   }
 }
