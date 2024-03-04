@@ -5,6 +5,7 @@ const post: Post = {
   date: "2024-02-28T13:27:28Z",
   title: "My second post",
   description: "This is my second post",
+  thumbnail: "post2.png",
   content: `
   # Domum ad
 

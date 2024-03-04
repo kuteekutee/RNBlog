@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, Image } from 'react-native'
 import React, { useState } from 'react'
 import { useLocalSearchParams } from 'expo-router'
 import { getAllPosts, getPost } from '../repository/postRepository'
@@ -39,6 +39,10 @@ const PostDetailsPage = () => {
         }}
       >
         <Text style={{ fontSize: 30, marginBottom: 20 }}>{post.title}</Text>
+
+        <Image
+          style={{ width: '100%', aspectRatio: 16 / 9 }}
+          source={{ uri: `/thumbnails/${post.thumbnail}` }} />
         <Markdown>{post.content}</Markdown>
       </ScrollView>
     </>
