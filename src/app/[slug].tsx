@@ -4,6 +4,7 @@ import { useLocalSearchParams } from 'expo-router'
 import { getAllPosts, getPost } from '../repository/postRepository'
 import { Post } from '../types/post'
 import Markdown from 'react-native-markdown-display'
+import Head from 'expo-router/head'
 
 export async function generateStaticParams(): Promise<Record<string, string>[]> {
   const posts = getAllPosts()
@@ -20,21 +21,27 @@ const PostDetailsPage = () => {
   }
 
   return (
-    <ScrollView
-      contentContainerStyle={{
-        maxWidth: 960,
-        width: '100%',
-        marginHorizontal: 'auto',
-        padding: 20,
-      }}
-      style={{
-        flex: 1,
-        backgroundColor: 'white',
-      }}
-    >
-      <Text style={{ fontSize: 30, marginBottom: 20 }}>{post.title}</Text>
-      <Markdown>{post.content}</Markdown>
-    </ScrollView>
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.description} />
+      </Head>
+      <ScrollView
+        contentContainerStyle={{
+          maxWidth: 960,
+          width: '100%',
+          marginHorizontal: 'auto',
+          padding: 20,
+        }}
+        style={{
+          flex: 1,
+          backgroundColor: 'white',
+        }}
+      >
+        <Text style={{ fontSize: 30, marginBottom: 20 }}>{post.title}</Text>
+        <Markdown>{post.content}</Markdown>
+      </ScrollView>
+    </>
   )
 }
 
